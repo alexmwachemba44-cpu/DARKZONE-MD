@@ -1,0 +1,51 @@
+const fs = require('fs');
+const path = require('path');
+if (fs.existsSync('config.env')) require('dotenv').config({ path: './config.env' });
+
+function convertToBool(text, fault = 'true') {
+    return text === fault ? true : false;
+}
+
+module.exports = {
+  // ===== ADMIN & OWNER SETTINGS =====
+  SESSION_ID: process.env.SESSION_ID || "IK~6wwwxYpb#ZgPXR_YtxM5yP31iSFfPmoJqGaMqng5XXk8irQk9N1c", 
+  DEV: process.env.DEV || "2540714513107", 
+  DEVELOPER_NUMBER: '2540714513107@s.whatsapp.net',
+
+  // ===== AUTO-RESPONSE SETTINGS =====
+  AUTO_REPLY: convertToBool(process.env.AUTO_REPLY) || false, 
+  AUTO_STATUS_REPLY: convertToBool(process.env.AUTO_STATUS_REPLY) || true, 
+  AUTO_STATUS_MSG: process.env.AUTO_STATUS_MSG || "*Status yako nimeiona!* 💫", 
+  READ_MESSAGE: convertToBool(process.env.READ_MESSAGE) || true, 
+  REJECT_MSG: process.env.REJECT_MSG || "*Samahani, sipokei simu kwa sasa!*", 
+
+  // ===== REACTION & STICKER SETTINGS =====
+  AUTO_REACT: convertToBool(process.env.AUTO_REACT) || true, 
+  OWNER_REACT: convertToBool(process.env.OWNER_REACT) || true,
+  CUSTOM_REACT: convertToBool(process.env.CUSTOM_REACT) || true,
+  CUSTOM_REACT_EMOJIS: "💫", 
+  STICKER_NAME: process.env.STICKER_NAME || "ERFAN BOT",
+  AUTO_STICKER: convertToBool(process.env.AUTO_STICKER) || false,
+
+  // ===== MEDIA & AUTOMATION =====
+  AUTO_RECORDING: convertToBool(process.env.AUTO_RECORDING) || false, 
+  AUTO_TYPING: convertToBool(process.env.AUTO_TYPING) || true, 
+  MENTION_REPLY: convertToBool(process.env.MENTION_REPLY) || true, 
+
+  // ===== SECURITY & ANTI-FEATURES =====
+  ANTI_DELETE: convertToBool(process.env.ANTI_DELETE) || true, 
+  ANTI_CALL: convertToBool(process.env.ANTI_CALL) || true, 
+  ANTI_LINK: convertToBool(process.env.ANTI_LINK) || true, 
+  ANTI_VV: convertToBool(process.env.ANTI_VV) || true, 
+  ANTI_BOT: convertToBool(process.env.ANTI_BOT) || true, 
+
+  // ===== BOT BEHAVIOR & APPEARANCE =====
+  DESCRIPTION: process.env.DESCRIPTION || "*ERFAN BOT CREATED BY ALEX*",
+  PUBLIC_MODE: convertToBool(process.env.PUBLIC_MODE) || true, 
+  ALWAYS_ONLINE: convertToBool(process.env.ALWAYS_ONLINE) || true,
+  AUTO_STATUS_REACT: convertToBool(process.env.AUTO_STATUS_REACT) || true, 
+  AUTO_STATUS_SEEN: convertToBool(process.env.AUTO_STATUS_SEEN) || true, 
+  AUTO_BIO: convertToBool(process.env.AUTO_BIO) || true,
+  WELCOME: convertToBool(process.env.WELCOME) || true, 
+  GOODBYE: convertToBool(process.env.GOODBYE) || true
+};
